@@ -1,0 +1,205 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/HeavyPixTheme/HeavyPix.theme" type="Theme" id=1]
+[ext_resource path="res://scripts/menu_scripts/Menu.gd" type="Script" id=2]
+[ext_resource path="res://scenes/ControlMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/CreditsMenu.tscn" type="PackedScene" id=4]
+
+[node name="Menu" type="Control"]
+anchor_left = -0.25
+anchor_top = -0.25
+anchor_right = 0.25
+anchor_bottom = 0.25
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuBG" type="ColorRect" parent="MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.337255, 0.439216, 0.501961, 0.337255 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="MainMenu"]
+margin_top = 22.0
+margin_right = 128.0
+margin_bottom = 54.0
+rect_scale = Vector2( 4, 4 )
+custom_colors/font_color = Color( 0, 0.490196, 0.615686, 1 )
+custom_colors/font_color_shadow = Color( 0.117647, 0.141176, 0.152941, 1 )
+text = "[(Project name autofill)]"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="MainMenu"]
+margin_left = 88.0
+margin_top = 126.0
+margin_right = 168.0
+margin_bottom = 150.0
+rect_scale = Vector2( 2, 2 )
+focus_neighbour_right = NodePath("../Controls")
+focus_neighbour_bottom = NodePath("../Settings")
+focus_next = NodePath("../Controls")
+focus_previous = NodePath("../Quit")
+text = "Play!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Button" parent="MainMenu"]
+margin_left = 264.0
+margin_top = 126.0
+margin_right = 344.0
+margin_bottom = 150.0
+rect_scale = Vector2( 2, 2 )
+focus_neighbour_left = NodePath("../Play")
+focus_neighbour_bottom = NodePath("../Credits")
+focus_next = NodePath("../Settings")
+focus_previous = NodePath("../Play")
+text = "Controls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Button" parent="MainMenu"]
+margin_left = 88.0
+margin_top = 182.0
+margin_right = 168.0
+margin_bottom = 206.0
+rect_scale = Vector2( 2, 2 )
+focus_neighbour_top = NodePath("../Play")
+focus_neighbour_right = NodePath("../Credits")
+focus_neighbour_bottom = NodePath("../Quit")
+focus_next = NodePath("../Credits")
+focus_previous = NodePath("../Controls")
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Button" parent="MainMenu"]
+margin_left = 264.0
+margin_top = 182.0
+margin_right = 344.0
+margin_bottom = 206.0
+rect_scale = Vector2( 2, 2 )
+focus_neighbour_left = NodePath("../Settings")
+focus_neighbour_top = NodePath("../Controls")
+focus_neighbour_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Settings")
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="MainMenu"]
+margin_left = 88.0
+margin_top = 238.0
+margin_right = 256.0
+margin_bottom = 262.0
+rect_scale = Vector2( 2, 2 )
+focus_neighbour_left = NodePath("../Settings")
+focus_neighbour_top = NodePath("../Settings")
+focus_neighbour_right = NodePath("../Credits")
+focus_next = NodePath("../Play")
+focus_previous = NodePath("../Credits")
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlMenu" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="CreditsMenu" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="QuitSplash" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_neighbour_left = NodePath("../CreditsMenu/Back")
+focus_neighbour_top = NodePath("../CreditsMenu/Back")
+focus_neighbour_right = NodePath("../CreditsMenu/Back")
+focus_neighbour_bottom = NodePath("../CreditsMenu/Back")
+focus_next = NodePath("../CreditsMenu/Back")
+focus_previous = NodePath("../CreditsMenu/Back")
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitSplashBG" type="ColorRect" parent="QuitSplash"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThanksForPlaying" type="Label" parent="QuitSplash"]
+margin_top = 22.0
+margin_right = 128.0
+margin_bottom = 38.0
+rect_scale = Vector2( 4, 4 )
+text = "Thanks for playing!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Label" parent="QuitSplash"]
+margin_top = 126.0
+margin_right = 256.0
+margin_bottom = 138.0
+rect_scale = Vector2( 2, 2 )
+text = "[(Project name autofill)] made by:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits_list" type="Label" parent="QuitSplash"]
+margin_left = 64.0
+margin_top = 158.0
+margin_right = 256.0
+margin_bottom = 222.0
+rect_scale = Vector2( 2, 2 )
+text = "Matt Cles"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TemplateShoutOut" type="RichTextLabel" parent="QuitSplash"]
+margin_left = 136.0
+margin_top = 270.0
+margin_right = 376.0
+margin_bottom = 294.0
+bbcode_enabled = true
+bbcode_text = "
+ Made with [url=https://github.com/matt-cles/godot-game-template]Matt's Godot Game Template[url]"
+text = "
+ Made with Matt's Godot Game Template"
+
+[connection signal="pressed" from="MainMenu/Controls" to="." method="_on_Controls_pressed"]
+[connection signal="pressed" from="MainMenu/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="MainMenu/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="meta_clicked" from="QuitSplash/TemplateShoutOut" to="." method="_on_TemplateShoutOut_meta_clicked"]

@@ -9,6 +9,9 @@ extends Node
 # The path to the users config file
 const CONFIG_FILE_PATH = "user://settings.cfg"
 
+# How long to show the Quit Game splash screen
+const SECONDS_TO_SHOW_EXIT_SPLASH = 5
+
 # Variables
 
 # Becomes a reference to the Config file
@@ -32,9 +35,18 @@ var move_left = "ui_left"
 var move_right = "ui_right"
 var move_up = "ui_up"
 var move_down = "ui_down"
-var ui_accept = "ui_accept"
-var cancel = "ui_cancel"
-var action = "action"
+var action = "ui_accept"
+var pause = "ui_cancel"
+
+# Input defaults map
+var input_defaults = {
+	move_left: 'left',
+	move_right: 'right',
+	move_up: 'up',
+	move_down: 'down',
+	action: 'space',
+	pause: 'escape',
+}
 
 # In this function, you can fix/reformat old config files to prevent breaking
 # config changes from corrupting user data
@@ -49,10 +61,35 @@ func check_for_config_incompatibility():
 		# config_file.erase_section_key("meta", "versoin")
 		# config_file.set_value("meta", "version", temp)
 
+	## Pass can safely be removed once there exists a config incompatibility above.
 	pass
 
 func _ready():
 	config_file = ConfigFile.new()
 	var _err = config_file.load(CONFIG_FILE_PATH)
 	config_file_version = config_file.get_value("meta", "version", new_config_file_version)
+	
+	# Check config file for incompatibility of previous versions
 	check_for_config_incompatibility()
+
+	# Set up controls
+	set_up_controls()
+
+func set_up_controls():
+	# Initialize the input events to ensure they have no extra inputs
+	#var inputs = [move_left, move_right, move_up, move_down, action, pause]
+	for input in input_defaults:
+		if InputMap.has_action(input):
+			InputMap.action_erase_events(input)
+		else:
+			InputMap.add_action(input)
+		var default_key = InputEventKey.new()
+		default_key.scancode = OS.find_scancode_from_string(input_defaults[input])
+		var config_key = config_file.get_value("input", input, default_key)
+		InputMap.action_add_event(input, config_key)
+
+func remap_key(input_event, event):
+	config_file.set_value("input", input_event, event)
+	var _err = config_file.save(CONFIG_FILE_PATH)
+	InputMap.action_erase_events(input_event)
+	InputMap.action_add_event(input_event, event)
