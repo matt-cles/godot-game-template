@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "Submenu",
+"language": "GDScript",
+"path": "res://scripts/menu_scripts/Submenu.gd"
+}, {
 "base": "Object",
 "class": "SymanticVersion",
 "language": "GDScript",
-"path": "res://scripts/SymanticVersion.gd"
+"path": "res://scripts/helper_scripts/SymanticVersion.gd"
 } ]
 _global_script_class_icons={
+"Submenu": "",
 "SymanticVersion": ""
 }
 
@@ -26,8 +32,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Settings="*res://scripts/Settings.gd"
-Events="*res://scripts/Events.gd"
+Settings="*res://scripts/singleton_class_scripts/Settings.gd"
+Events="*res://scripts/singleton_class_scripts/Events.gd"
 
 [importer_defaults]
 
