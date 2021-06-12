@@ -32,8 +32,9 @@ var move_left = "ui_left"
 var move_right = "ui_right"
 var move_up = "ui_up"
 var move_down = "ui_down"
-var action = "ui_accept"
+var ui_accept = "ui_accept"
 var cancel = "ui_cancel"
+var action = "action"
 
 # In this function, you can fix/reformat old config files to prevent breaking
 # config changes from corrupting user data
