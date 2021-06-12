@@ -24,7 +24,7 @@ __meta__ = {
 margin_left = 168.0
 margin_top = 158.0
 margin_right = 248.0
-margin_bottom = 180.0
+margin_bottom = 182.0
 focus_neighbour_right = NodePath("../Controlls")
 focus_neighbour_bottom = NodePath("../Settings")
 focus_next = NodePath("../Controlls")
@@ -38,7 +38,7 @@ __meta__ = {
 margin_left = 264.0
 margin_top = 158.0
 margin_right = 344.0
-margin_bottom = 180.0
+margin_bottom = 182.0
 focus_neighbour_left = NodePath("../Play")
 focus_neighbour_bottom = NodePath("../Credits")
 focus_next = NodePath("../Settings")
@@ -52,10 +52,10 @@ __meta__ = {
 margin_left = 168.0
 margin_top = 190.0
 margin_right = 248.0
-margin_bottom = 212.0
+margin_bottom = 214.0
 focus_neighbour_top = NodePath("../Play")
 focus_neighbour_right = NodePath("../Credits")
-focus_neighbour_bottom = NodePath("../QuitButton")
+focus_neighbour_bottom = NodePath("../Quit")
 focus_next = NodePath("../Credits")
 focus_previous = NodePath("../Controlls")
 text = "Settings"
@@ -67,28 +67,27 @@ __meta__ = {
 margin_left = 264.0
 margin_top = 190.0
 margin_right = 344.0
-margin_bottom = 212.0
+margin_bottom = 214.0
 focus_neighbour_left = NodePath("../Settings")
 focus_neighbour_top = NodePath("../Controlls")
-focus_neighbour_bottom = NodePath("../QuitButton")
-focus_next = NodePath("../QuitButton")
+focus_neighbour_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Settings")
 text = "Credits"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitButton" type="Button" parent="Menu"]
+[node name="Quit" type="Button" parent="Menu"]
 margin_left = 168.0
 margin_top = 222.0
 margin_right = 344.0
-margin_bottom = 244.0
+margin_bottom = 246.0
 focus_neighbour_left = NodePath("../Settings")
 focus_neighbour_top = NodePath("../Settings")
 focus_neighbour_right = NodePath("../Credits")
 focus_next = NodePath("../Play")
 focus_previous = NodePath("../Credits")
-disabled = true
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
