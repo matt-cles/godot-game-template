@@ -1,0 +1,110 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/HeavyPixTheme/HeavyPix.theme" type="Theme" id=2]
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="Menu" type="Control" parent="."]
+margin_left = -256.0
+margin_top = -150.0
+margin_right = 256.0
+margin_bottom = 150.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="Menu"]
+margin_left = 168.0
+margin_top = 158.0
+margin_right = 248.0
+margin_bottom = 180.0
+focus_neighbour_right = NodePath("../Controlls")
+focus_neighbour_bottom = NodePath("../Settings")
+focus_next = NodePath("../Controlls")
+focus_previous = NodePath("../QuitButton")
+text = "Play!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controlls" type="Button" parent="Menu"]
+margin_left = 264.0
+margin_top = 158.0
+margin_right = 344.0
+margin_bottom = 180.0
+focus_neighbour_left = NodePath("../Play")
+focus_neighbour_bottom = NodePath("../Credits")
+focus_next = NodePath("../Settings")
+focus_previous = NodePath("../Play")
+text = "Controlls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Button" parent="Menu"]
+margin_left = 168.0
+margin_top = 190.0
+margin_right = 248.0
+margin_bottom = 212.0
+focus_neighbour_top = NodePath("../Play")
+focus_neighbour_right = NodePath("../Credits")
+focus_neighbour_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../Credits")
+focus_previous = NodePath("../Controlls")
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Button" parent="Menu"]
+margin_left = 264.0
+margin_top = 190.0
+margin_right = 344.0
+margin_bottom = 212.0
+focus_neighbour_left = NodePath("../Settings")
+focus_neighbour_top = NodePath("../Controlls")
+focus_neighbour_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../Settings")
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="Menu"]
+margin_left = 168.0
+margin_top = 222.0
+margin_right = 344.0
+margin_bottom = 244.0
+focus_neighbour_left = NodePath("../Settings")
+focus_neighbour_top = NodePath("../Settings")
+focus_neighbour_right = NodePath("../Credits")
+focus_next = NodePath("../Play")
+focus_previous = NodePath("../Credits")
+disabled = true
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menu"]
+margin_top = 22.0
+margin_right = 128.0
+margin_bottom = 54.0
+rect_scale = Vector2( 4, 4 )
+custom_colors/font_color = Color( 0, 0.490196, 0.615686, 1 )
+custom_colors/font_color_shadow = Color( 0.117647, 0.141176, 0.152941, 1 )
+text = "The LAZYROBOT Game Template"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
