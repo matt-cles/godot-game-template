@@ -9,10 +9,12 @@ func _ready():
 	
 	# Ensure that the splash screens and other menus are not visible
 	$ControlMenu.visible = false
+	$CreditsMenu.visible = false
 	$QuitSplash.visible = false
 	
 	# Autofill project name
 	$MainMenu/Title.text = project_name
+	$CreditsMenu/Credits.text = "%s made by:" % project_name
 	$QuitSplash/Credits.text = "%s made by:" % project_name
 	
 	# Give focus to the "Play!" button
@@ -36,3 +38,6 @@ func _on_TemplateShoutOut_meta_clicked(_meta):
 # When the player presses the controlls button
 func _on_Controls_pressed():
 	$ControlMenu.borrow_focus()
+
+func _on_Credits_pressed():
+	$CreditsMenu.borrow_focus()
