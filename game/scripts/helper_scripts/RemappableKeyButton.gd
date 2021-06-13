@@ -1,6 +1,7 @@
 # thanks to the godot-demo for input mapping available here:
 # https://github.com/godotengine/godot-demo-projects/tree/master/gui/input_mapping
 
+class_name RemappableButton
 extends Button
 
 onready var settings:Settings = get_node("/root/Settings")
