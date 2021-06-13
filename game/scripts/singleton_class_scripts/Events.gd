@@ -26,3 +26,7 @@ signal demo_signal
 signal demo_signal_with_parameters
 # Usage: events.emit_signal("demo_signal", value:int, name:string)
 
+# A signal that helps to prevent multiple key remappings at the same time
+signal remapping_key
+# Usage: events.emit_signal("remapping_key", value:bool)
+
